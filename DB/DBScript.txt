@@ -139,3 +139,17 @@ USE [master]
 GO
 ALTER DATABASE [IdentityAuthDB] SET  READ_WRITE 
 GO
+
+
+
+
+CREATE TABLE [dbo].[AspNetPrenot](
+	[Id] [nvarchar](450) NOT NULL,	
+	[IdUser] [nvarchar](256) NULL,
+	[Suite] [nvarchar](max) NULL,
+	[Week] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetPrenot] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]

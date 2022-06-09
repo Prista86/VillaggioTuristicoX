@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Prenotazione";
+}
+
+@using Microsoft.AspNetCore.Identity
+@using MVC_TDPC13.DB.Entities
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Prenota la tua vacanza</h3>
+
+<<div>
+  <p>Scegli la tua Suite:</p>
+  <input type="radio" id="suite1" name="camera" value="Silver">
+  <label for="suite1">Silver</label><br>
+  <input type="radio" id="suite2" name="camera" value="Gold">
+  <label for="suite2">Gold</label><br>
+  
+
+  <br>  
+
+  <p>Seleziona la settimana scelta:</p>
+  <input type="radio" id="set1" name="settimana"  value="1">
+  <label for="set1">Settimana 1</label><br>
+  <input type="radio" id="set2" name="settimana" value="2">
+  <label for="set2">Settimana 2</label><br>  
+  <input type="radio" id="set3" name="settimana" value="3">
+  <label for="set3">Settimana 3</label><br>
+  <input type="radio" id="set4" name="settimana" value="4">
+  <label for="set4">Settimana 4</label><br>
+  
+</div>
+
+<button onclick="prenota({ user: '@User.Identity.Name' })" class="btn btn-primary">Clicca per prenotare la tua vacanza!</button>
+
+
+
+
+ @if (SignInManager.IsSignedIn(User))
+                        {
+                            @User.Identity.Name
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HiddenPage">Hidden Page</a>
+                            </li>
+                        }
