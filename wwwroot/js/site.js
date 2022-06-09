@@ -1,0 +1,3 @@
+﻿function ButtonClick() {
+    alert("hi");
+}
