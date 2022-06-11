@@ -16,12 +16,13 @@ namespace MVC_TDPC13.DB.Entities
             List<Prenotazione> result = this.DBContext.Prenotazioni.ToList();
             return result;
         }
-
-        //public Suite GetSuiteByID(string id)
-        //{
-        //    Suite result = this.DBContext.Suites.Where(p => p.Id.ToString() == id).FirstOrDefault();
-        //    return result;
-        //}
+        
+        public Suite GetSuiteByID(string id)
+        {
+            //select * from persons where id = "id"
+            Suite result = this.DBContext.Suites.Where(p => p.Id.ToString() == id).FirstOrDefault();
+            return result;
+        }
 
         public List<Suite> GetSuites()
         {
@@ -30,9 +31,9 @@ namespace MVC_TDPC13.DB.Entities
 
 
 
-            //Suite esempio = GetSuiteByID("000000");
-            //esempio.Nome = "new name";
-            //this.UpdateSuite(esempio);
+            Suite esempio = GetSuiteByID("1");
+            esempio.Disponibilita -= 1;
+            this.UpdateSuite(esempio);
 
 
 
@@ -41,21 +42,8 @@ namespace MVC_TDPC13.DB.Entities
 
         
 
-        //public Person GetPersonByID(string id)
-        //{
-        //    //select * from persons where id = "id"
-        //    Person result = this.DBContext.Persons.Where(p => p.ID.ToString() == id).FirstOrDefault();
-        //    return result;
-        //}
-        //public List<Prenotaz> GetPersonWithFilter(string filter)
-        //{
-        //    //select * from persons where nome like "%filter%"
-        //    //or cognome like "%filter%"
-        //    List<Prenotaz> result = this.DBContext.Prenotaz
-        //        .Where(p => p.Nome.Contains(filter)
-        //        || p.Cognome.Contains(filter)).ToList();
-        //    return result;
-        //}
+        
+        
         public void InsertPerson(Prenotazione prenotazione)
         {
             this.DBContext.Prenotazioni.Add(prenotazione);
