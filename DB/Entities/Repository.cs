@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MVC_TDPC13.DB.Entities
@@ -16,41 +17,59 @@ namespace MVC_TDPC13.DB.Entities
             List<Prenotazione> result = this.DBContext.Prenotazioni.ToList();
             return result;
         }
-        
-        public Suite GetSuiteByID(string id)
+
+
+        public List<Suite> VerificaSilver()
         {
-            //select * from persons where id = "id"
-            Suite result = this.DBContext.Suites.Where(p => p.Id.ToString() == id).FirstOrDefault();
+            //select* from persons
+            List<Suite> result = this.DBContext.Suites.ToList();
+            Suite esempio = GetSuiteByID("1");
+            if (esempio.Disponibilita > 0)
+            {
+                esempio.Disponibilita -= 1;
+                this.UpdateSuite(esempio);
+                return result;
+            }
             return result;
         }
+        public List<Suite> VerificaGold()
+        {
+            //select* from persons
+            List<Suite> result = this.DBContext.Suites.ToList();
+            Suite esempio = GetSuiteByID("2");
+            if (esempio.Disponibilita > 0)
+            {
+                esempio.Disponibilita -= 1;
+                this.UpdateSuite(esempio);
+                return result;
+            }
+            return result;
+            
+        }
+
+
 
         public List<Suite> GetSuites()
         {
             //select* from persons
-            List<Suite> result = this.DBContext.Suites.ToList();
-
-
-
-            Suite esempio = GetSuiteByID("1");
-            esempio.Disponibilita -= 1;
-            this.UpdateSuite(esempio);
-
-
-
+            List<Suite> result = this.DBContext.Suites.ToList();            
             return result;
         }
-
-        
-
-        
-        
         public void InsertPerson(Prenotazione prenotazione)
         {
             this.DBContext.Prenotazioni.Add(prenotazione);
             this.DBContext.SaveChanges();
         }
 
-        public void UpdateSuite(Suite suite) {
+        public Suite GetSuiteByID(string id)
+        {
+            //select * from persons where id = "id"            
+            Suite suiteCont = this.DBContext.Suites.Where(p => p.Id.ToString() == id).FirstOrDefault();
+            return suiteCont;
+        }
+
+        public void UpdateSuite(Suite suite)
+        {
             this.DBContext.Suites.Update(suite);
             this.DBContext.SaveChanges();
         }

@@ -49,22 +49,16 @@ namespace MVC_TDPC13.Controllers
         {
             List<Suite> suite = this.repository.GetSuites();
             List<SuiteModel> model = new List<SuiteModel>();
+            
             foreach (Suite p in suite)
                 model.Add(new SuiteModel()
                 {
                     Id = p.Id,
                     Nome = p.Nome,
                     Disponibilita = p.Disponibilita
-                }); ;
+                });            
+            
             return View(model);
-
-
-
-
-
-
-
-
 
         }
 

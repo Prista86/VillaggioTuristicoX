@@ -112,7 +112,7 @@ GO
 
 
 CREATE TABLE [dbo].[Suites](
-	[Id] [nvarchar](450) NOT NULL,	
+	[Id] [int] NOT NULL,	
 	[Nome] [nvarchar](max) NULL,
 	[Disponibilita] [int] NULL,	
  CONSTRAINT [PK_Suites] PRIMARY KEY CLUSTERED 
@@ -168,9 +168,9 @@ GO
 
 --////////////////////////////////////////
 
-INSERT [dbo].[Suites] ([Id], [Nome], [Disponibilita]) VALUES (N'1', N'Gold' , N'3')
+INSERT [dbo].[Suites] ([Id], [Nome], [Disponibilita]) VALUES (N'1', N'Silver' , N'3')
 GO
- INSERT [dbo].[Suites] ([Id], [Nome], [Disponibilita]) VALUES (N'2', N'Silver' , N'3')
+INSERT [dbo].[Suites] ([Id], [Nome], [Disponibilita]) VALUES (N'2', N'Gold' , N'3')
 GO
 
 INSERT [dbo].[AspNetUsers] ([Id], [Email], [PhoneNumber],[UserName],[FirstName],[LastName]) VALUES (N'db1fcd7f-a63d-4a08-a9e1-285b27868386', N'admin@admin.it' , N'222',N'Admin1', N'Admin' , N'Admin')
@@ -182,16 +182,7 @@ GO
 
 
 
-CREATE TABLE [dbo].[Suites2](
-	[Id] [nvarchar](450) NOT NULL,	
-	[Nome] [nvarchar](max) NULL,
-	[Disponibilita] [int] NULL,	
- CONSTRAINT [PK_Suites2] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC	
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
+
 
 
 
@@ -203,19 +194,6 @@ GO
 
 
 
-?
-CREATE TABLE [dbo].[AspNetUsers](
-	[Id] [nvarchar](450) NOT NULL,	
-	[Email] [nvarchar](256) NULL,
-	[PhoneNumber] [nvarchar](max) NULL,
-	[UserName] [nvarchar](256) NULL,
-	[FirstName] [nvarchar](max) NULL,
-	[LastName] [nvarchar](max) NULL,
- CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 
 

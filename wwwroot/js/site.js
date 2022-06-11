@@ -49,27 +49,11 @@ function prenota(CurrentUser) {
     else {
         suiteFlag = "Gold";
     }
-    var set1 = $("#set1").is(":checked");
-    var set2 = $("#set2").is(":checked");
-    var set3 = $("#set3").is(":checked");
-    var set4 = $("#set4").is(":checked");
-
-    if (set1 == true) {
-        setFlag = "1"
-    }
-    else if (set2 == true) {
-        setFlag = "2"
-    }
-    else if (set3 == true) {
-        setFlag = "3"
-    }
-    else {
-        setFlag = "4"
-    }
+    
     var body = {};
     body.IdUser = currentUserName;
     body.Suite = suiteFlag;
-    body.Week = setFlag;
+    body.Week = setFlag; 
     $.ajax({
         method: "POST",
         url: "/api/prenotazione",
@@ -91,3 +75,68 @@ function prenota(CurrentUser) {
         always: function () { }
     });
 }
+
+
+function SuiteSilver() {
+    $.ajax({
+        method: "GET",
+        url: "/api/Suite/getasync1",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data, status) {
+            console.log(data);
+            //for (var i = 0; i < data.length; i++) {
+            //    $("#resultDiv").append("<br/><div>" + data[i] + "</div>");
+            //}
+            this.always();
+        },
+        error: function (error, status) {
+            console.log(error);
+            console.log(status);
+            this.always();
+        },
+        always: function () { }
+    });    
+};
+
+
+function SuiteGold() {
+    $.ajax({
+        method: "GET",
+        url: "/api/Suite/getasync2",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data, status) {
+            console.log(data);
+            //for (var i = 0; i < data.length; i++) {
+            //    $("#resultDiv").append("<br/><div>" + data[i] + "</div>");
+            //}
+            this.always();
+        },
+        error: function (error, status) {
+            console.log(error);
+            console.log(status);
+            this.always();
+        },
+        always: function () { }
+    });
+};
+
+
+//var set1 = $("#set1").is(":checked");
+    //var set2 = $("#set2").is(":checked");
+    //var set3 = $("#set3").is(":checked");
+    //var set4 = $("#set4").is(":checked");
+
+    //if (set1 == true) {
+    //    setFlag = "1"
+    //}
+    //else if (set2 == true) {
+    //    setFlag = "2"
+    //}
+    //else if (set3 == true) {
+    //    setFlag = "3"
+    //}
+    //else {
+    //    setFlag = "4"
+    //}
