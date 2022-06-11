@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASPNETIdentityManager.Comon
+namespace ASPNETIdentityManager.Common
 {
     public static class ConstantValues
     {

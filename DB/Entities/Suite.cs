@@ -6,5 +6,6 @@ namespace MVC_TDPC13.DB.Entities
     {
         public string Id { get; set; }
         public string Nome { get; set; }
+        public int Disponibilita { get; set; }
     }
 }

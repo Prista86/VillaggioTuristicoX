@@ -2,7 +2,7 @@
 
 namespace MVC_TDPC13.Models
 {
-    public class PrenotazModel
+    public class PrenotazioneModel
     {        
         public string Suite { get; set; }
         public string Week { get; set; }

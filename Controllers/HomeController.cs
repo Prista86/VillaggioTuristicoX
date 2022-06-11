@@ -21,10 +21,12 @@ namespace MVC_TDPC13.Controllers
         private SignInManager<User> signInManager;
         private UserManager<User> userManager;
         private UserDBContext dbContext;
+        private DBContext dBContext;
         public HomeController(SignInManager<User> signInManager,
             UserManager<User> userManager,
             UserDBContext dbContext,
-            Repository repository)
+            DBContext dBContext,
+        Repository repository)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
@@ -36,8 +38,9 @@ namespace MVC_TDPC13.Controllers
         {
             return View();
         }
-
         
+
+
 
 
 
@@ -49,19 +52,20 @@ namespace MVC_TDPC13.Controllers
             foreach (Suite p in suite)
                 model.Add(new SuiteModel()
                 {
-
                     Id = p.Id,
-                    Nome = p.Nome
+                    Nome = p.Nome,
+                    Disponibilita = p.Disponibilita
                 }); ;
             return View(model);
 
-            
 
 
 
 
 
-           
+
+
+
         }
 
         public IActionResult AdminPage()

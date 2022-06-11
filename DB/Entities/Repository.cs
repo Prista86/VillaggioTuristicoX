@@ -23,7 +23,7 @@ namespace MVC_TDPC13.DB.Entities
         //    return result;
         //}
 
-        /*public List<Suite> GetSuites()
+        public List<Suite> GetSuites()
         {
             //select* from persons
             List<Suite> result = this.DBContext.Suites.ToList();
@@ -37,7 +37,9 @@ namespace MVC_TDPC13.DB.Entities
 
 
             return result;
-        }*/
+        }
+
+        
 
         //public Person GetPersonByID(string id)
         //{
@@ -54,9 +56,9 @@ namespace MVC_TDPC13.DB.Entities
         //        || p.Cognome.Contains(filter)).ToList();
         //    return result;
         //}
-        public void InsertPerson(Prenotazione prenotaz)
+        public void InsertPerson(Prenotazione prenotazione)
         {
-            this.DBContext.Prenotazioni.Add(prenotaz);
+            this.DBContext.Prenotazioni.Add(prenotazione);
             this.DBContext.SaveChanges();
         }
 

@@ -72,7 +72,7 @@ function prenota(CurrentUser) {
     body.Week = setFlag;
     $.ajax({
         method: "POST",
-        url: "/api/Prenotazione",
+        url: "/api/prenotazione",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",

@@ -9,17 +9,17 @@ namespace MVC_TDPC13.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PrenotazController : ControllerBase
+    public class PrenotazioneController : ControllerBase
     {
         private readonly Repository repository;
-        public PrenotazController(Repository repository)
+        public PrenotazioneController(Repository repository)
         {
             this.repository = repository;
         }
 
         // POST api/<PrenotazController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] PrenotazModel model)
+        public async Task<IActionResult> Post([FromBody] PrenotazioneModel model)
         {
             //string username = User.Identity.Name;
             Prenotazione prenotazione = new Prenotazione();
