@@ -2,7 +2,7 @@
 
 namespace MVC_TDPC13.DB.Entities
 {
-    public class Prenotaz
+    public class Prenotazione
     {
         public Guid? ID { get; set; }
         public string Suite { get; set; }

@@ -7,6 +7,7 @@ using MVC_TDPC13.DB;
 using MVC_TDPC13.DB.Entities;
 using MVC_TDPC13.Models;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -15,27 +16,52 @@ namespace MVC_TDPC13.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> logger;
+        private readonly Repository repository;
 
         private SignInManager<User> signInManager;
         private UserManager<User> userManager;
         private UserDBContext dbContext;
         public HomeController(SignInManager<User> signInManager,
             UserManager<User> userManager,
-            UserDBContext dbContext)
+            UserDBContext dbContext,
+            Repository repository)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.dbContext = dbContext;
+            this.repository = repository;
         }
 
         public IActionResult Index()
         {
             return View();
         }
+
+        
+
+
+
         [Authorize]
         public IActionResult Prenotazione()
         {
-            return View();
+            List<Suite> suite = this.repository.GetSuites();
+            List<SuiteModel> model = new List<SuiteModel>();
+            foreach (Suite p in suite)
+                model.Add(new SuiteModel()
+                {
+
+                    Id = p.Id,
+                    Nome = p.Nome
+                }); ;
+            return View(model);
+
+            
+
+
+
+
+
+           
         }
 
         public IActionResult AdminPage()

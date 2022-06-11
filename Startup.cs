@@ -25,8 +25,9 @@ namespace MVC_TDPC13
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddScoped<Repository>();
+            services.AddScoped<Repository>();
             services.AddDbContext<UserDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AuthDB")));
+            services.AddDbContext<DBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //User Management
             services.AddIdentity<User, IdentityRole>()

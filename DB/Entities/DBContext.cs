@@ -10,7 +10,8 @@ namespace MVC_TDPC13.DB
             : base(options)
         {
         }
-        public DbSet<Prenotaz> Prenotaz { get; set; }
+        public DbSet<Prenotazione> Prenotazioni { get; set; }
+        public DbSet<Suite> Suites { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

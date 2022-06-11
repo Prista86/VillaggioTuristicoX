@@ -99,6 +99,36 @@ CREATE TABLE [dbo].[AspNetUserTokens](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+
+
+CREATE TABLE [dbo].[Prenotazioni](
+	[Id] [nvarchar](450) NOT NULL,	
+	[IdUser] [nvarchar](256) NULL,
+	[Suite] [nvarchar](max) NULL,
+	[Week] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Prenotazioni] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC	
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[Suites](
+	[Id] [nvarchar](450) NOT NULL,	
+	[IdUser] [nvarchar](256) NULL,
+	[Suite] [nvarchar](max) NULL,
+	[Week] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Suites] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC	
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+--////////////////////////////////////////
+
+
 INSERT [dbo].[AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName]) VALUES (N'b5dad443-fd55-408a-8039-771d684dffd3', N'52ea3c72-81db-43fe-9f18-a2c0fadc22b8', N'Admin', N'ADMIN')
 GO
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'07ead05e-6ce7-4dd5-adc6-2360392928fe', N'b5dad443-fd55-408a-8039-771d684dffd3')
@@ -137,19 +167,56 @@ ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetU
 GO
 USE [master]
 GO
-ALTER DATABASE [IdentityAuthDB] SET  READ_WRITE 
+ALTER DATABASE [VillaggioTuristico] SET  READ_WRITE 
+GO
+
+--////////////////////////////////////////
+
+INSERT [dbo].[Suites] ([Id], [Nome], [Disponibilita]) VALUES (N'1', N'Gold' , N'3')
+GO
+ INSERT [dbo].[Suites] ([Id], [Nome], [Disponibilita]) VALUES (N'2', N'Silver' , N'3')
+GO
+
+INSERT [dbo].[AspNetUsers] ([Id], [Email], [PhoneNumber],[UserName],[FirstName],[LastName]) VALUES (N'db1fcd7f-a63d-4a08-a9e1-285b27868386', N'admin@admin.it' , N'222',N'Admin1', N'Admin' , N'Admin')
 GO
 
 
 
 
-CREATE TABLE [dbo].[AspNetPrenot](
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+?
+CREATE TABLE [dbo].[AspNetUsers](
 	[Id] [nvarchar](450) NOT NULL,	
-	[IdUser] [nvarchar](256) NULL,
-	[Suite] [nvarchar](max) NULL,
-	[Week] [nvarchar](max) NULL,
- CONSTRAINT [PK_AspNetPrenot] PRIMARY KEY CLUSTERED 
+	[Email] [nvarchar](256) NULL,
+	[PhoneNumber] [nvarchar](max) NULL,
+	[UserName] [nvarchar](256) NULL,
+	[FirstName] [nvarchar](max) NULL,
+	[LastName] [nvarchar](max) NULL,
+ CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+
+
+
+
+
+
+
+

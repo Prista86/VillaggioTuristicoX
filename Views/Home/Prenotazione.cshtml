@@ -12,7 +12,27 @@
 
 <h3>Prenota la tua vacanza</h3>
 
-<<div>
+@model List<SuiteModel>;
+
+<table>
+    <tr>
+        <td> Id</td>
+        <td> Suite</td>
+        
+    </tr>
+    @foreach (SuiteModel p in Model)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Nome</td>
+            
+        </tr>
+    }
+</table>
+
+
+
+<div>
   <p>Scegli la tua Suite:</p>
   <input type="radio" id="suite1" name="camera" value="Silver">
   <label for="suite1">Silver</label><br>

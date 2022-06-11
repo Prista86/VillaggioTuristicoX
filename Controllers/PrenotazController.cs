@@ -21,14 +21,15 @@ namespace MVC_TDPC13.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PrenotazModel model)
         {
-            Prenotaz prenotaz = new Prenotaz();
-            prenotaz.Suite = model.Suite;
-            prenotaz.Week = model.Week;
-            prenotaz.IdUser = model.IdUser;
+            //string username = User.Identity.Name;
+            Prenotazione prenotazione = new Prenotazione();
+            prenotazione.Suite = model.Suite;
+            prenotazione.Week = model.Week;
+            prenotazione.IdUser = model.IdUser;
 
-            this.repository.InsertPerson(prenotaz);
+            this.repository.InsertPerson(prenotazione);
             return Ok();
-        }        
+        }
     }
 }
 
