@@ -6,88 +6,60 @@
 @using MVC_TDPC13.DB.Entities
 @inject UserManager<User> UserManager
 @inject SignInManager<User> SignInManager
-
-
-
+@model List<SuiteModel>;
 
 <h1>@ViewData["Title"]</h1>
 
-<h3>Prenota la tua vacanza</h3>
+<br />
+<br />
 
-@model List<SuiteModel>;
+<h3>Disponibilità Suite:</h3>
 
 <table>
     <tr>
-        <td> Id</td>
-        <td> Suite</td>
-        <td> Disponibilità</td>
-        
+        @*<td> Id</td>*@
+        <td>Nome Suite</td>
+        <td>Disponibilità</td>
     </tr>
     @foreach (SuiteModel p in Model)
     {
         <tr>
-            <td>@p.Id</td>
+            @*<td>@p.Id</td>*@
             <td>@p.Nome</td>
             <td>@p.Disponibilita</td>
-            
         </tr>
     }
 </table>
 
-
-
-<div>
-  <p>Scegli la tua Suite:</p>
-  <input type="radio" id="suite1" name="camera" value="Silver">
-  <label for="suite1">Silver</label><br>
-  <input type="radio" id="suite2" name="camera" value="Gold">
-  <label for="suite2">Gold</label><br>
-  
-
-  <br>  
-
-  @*<p>Seleziona la settimana scelta:</p>
-  <input type="radio" id="set1" name="settimana"  value="1">
-  <label for="set1">Settimana 1</label><br>
-  <input type="radio" id="set2" name="settimana" value="2">
-  <label for="set2">Settimana 2</label><br>  
-  <input type="radio" id="set3" name="settimana" value="3">
-  <label for="set3">Settimana 3</label><br>
-  <input type="radio" id="set4" name="settimana" value="4">
-  <label for="set4">Settimana 4</label><br>*@
-  
-</div>
-
-
-    
-
-
-
-
-@*<div class="d-grid gap-2 col-6 mx-auto">
-  <button onclick="SuiteSilver()" class="btn btn-primary" id="silver1" type="button" value="silver">Prenota Silver</button>
-  <button onclick="SuiteGold()" class="btn btn-primary" id="gold2" type="button" value="gold">Prenota Gold</button>
-</div>*@
+<br />
+<br />
+<br />
 
 <button onclick="SuiteSilver()" class="btn btn1 btn-primary" id="silver" value="silver">Prenota La suite Silver</button>
 <button onclick="SuiteGold()" class="btn btn1 btn-primary" id="gold" value="gold">Prenota la suite Gold</button>
+
+<br />
+<br />
+<br />
+
+<div>
+    <p>Scegli la tua Suite:</p>
+    <input type="radio" id="suite1" name="camera" value="Silver">
+    <label for="suite1">Silver</label><br>
+    <input type="radio" id="suite2" name="camera" value="Gold">
+    <label for="suite2">Gold</label><br>
+</div>
+
 <br />
 <br />
 <br />
 
 <button onclick="prenota({ user: '@User.Identity.Name' })" class="btn  btn2 btn-primary">Conferma la Prenotazione</button>
 
-
-@*<button class="btn1">CLICK</button> 
-<button class="btn2">wow you really clicked</button> *@
-
-
-
-
- @if (SignInManager.IsSignedIn(User))
-                        {
-                            @User.Identity.Name
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HiddenPage">Hidden Page</a>
-                            </li>
-                        }
+@*@if (SignInManager.IsSignedIn(User))
+{
+    @User.Identity.Name
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HiddenPage">Hidden Page</a>
+    </li>
+}*@
