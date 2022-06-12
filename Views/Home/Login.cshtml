@@ -8,9 +8,38 @@
 @inject SignInManager<User> SignInManager
     @if (!SignInManager.IsSignedIn(User))
     {
+    @*<div class="container">
+        <div class="row">
+            <div class="col-6">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fabitazione-africana-tipica-della-capanna-di-dagga-e-del-fango-47124659.jpg&f=1&nofb=1" id="imglogin" />
+                <br>
+                <form asp-action="Login" asp-controller="Home" method="post" style="text-align:center">
+                    <div class="form-group">
+                        <label asp-for="@Model.UserName"></label>
+                        <input asp-for="@Model.UserName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Password"></label>
+                        <input asp-for="@Model.Password" class="form-control" />
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Login" />
+                </form>
+            </div>
+        </div>
+    </div>*@
     <div class="container">
         <div class="row">
             <div class="col-6">
+                <div id="divLogin">
+                    
+                    <h3>Resort VILLA DI LUCE</h3>
+                    <br><br>
+                    <img id="imglogin" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.oPWV8e5Bq0cUhOHkq6h9HwHaE8%26pid%3DApi&f=1" />
+                    <br><br>
+                    <p id="plogin">Esegui il login per accedere alla tua pagina personale!</p>
+                    <br><br>
+                </div>
+                <br>
                 <form asp-action="Login" asp-controller="Home" method="post" style="text-align:center">
                     <div class="form-group">
                         <label asp-for="@Model.UserName"></label>

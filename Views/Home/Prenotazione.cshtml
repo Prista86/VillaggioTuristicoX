@@ -35,8 +35,7 @@
 <br />
 <br />
 
-<button onclick="SuiteSilver()" class="btn btn1 btn-primary" id="silver" value="silver">Prenota La suite Silver</button>
-<button onclick="SuiteGold()" class="btn btn1 btn-primary" id="gold" value="gold">Prenota la suite Gold</button>
+
 
 <br />
 <br />
@@ -54,8 +53,17 @@
 <br />
 <br />
 
-<button onclick="prenota({ user: '@User.Identity.Name' })" class="btn  btn2 btn-primary">Conferma la Prenotazione</button>
+<button onclick="prenota({ user: '@User.Identity.Name' })" class="btn  btn2 btn-primary">Scegli la Suite che vuoi prenotare</button>
 
+
+<br />
+<br />
+<br />
+
+
+
+<button onclick="SuiteSilver()" class="btn btn1 btn-primary" id="silver" value="silver">Conferma la prenotazione Silver</button>
+<button onclick="SuiteGold()" class="btn btn1 btn-primary" id="gold" value="gold">Conferma la prenotazione Gold</button>
 @*@if (SignInManager.IsSignedIn(User))
 {
     @User.Identity.Name

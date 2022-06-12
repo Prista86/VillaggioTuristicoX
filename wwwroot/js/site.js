@@ -47,23 +47,21 @@ function prenota(CurrentUser) {
     else {
         suiteFlag = "Gold";
     }
-
     var body = {};
     body.User = currentUserName;
     body.Suite = suiteFlag;
-    body.Week = setFlag;  
+    body.Week = setFlag;    
     $.ajax({
         method: "POST",
         url: "/api/prenotazione",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
-        dataType: "json",
-        success: function (data, status) {
+        dataType: "json",        
+        success: function (data, status) {            
             console.log(body);
             console.log(data);
             console.log(status);
             this.always();
-            window.location.reload();
         },
         error: function (error, status) {
             console.log(body);
@@ -72,7 +70,7 @@ function prenota(CurrentUser) {
             this.always();
         },
         always: function () { }
-    });
+    });    
 }
 
 
@@ -83,9 +81,9 @@ function SuiteSilver() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data, status) {
-            console.log(data);            
+            console.log(data);
             this.always();
-            /*window.location.reload();*/
+            window.location.reload();
         },
         error: function (error, status) {
             console.log(error);
@@ -93,10 +91,9 @@ function SuiteSilver() {
             this.always();
         },
         always: function () { }
-        
-    });    
-};
 
+    });
+};
 
 function SuiteGold() {
     $.ajax({
@@ -105,9 +102,9 @@ function SuiteGold() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data, status) {
-            console.log(data);            
+            console.log(data);
             this.always();
-            /*window.location.reload();*/
+            window.location.reload();
         },
         error: function (error, status) {
             console.log(error);
@@ -115,33 +112,5 @@ function SuiteGold() {
             this.always();
         },
         always: function () { }
-        
     });
 };
-
-//document.querySelector('.btn2').style.display = 'none';
-//document.querySelector('.btn1').addEventListener('click', showBtn);
-
-//function showBtn(e) {
-//    document.querySelector('.btn2').style.display = 'block';
-//    e.preventDefault();
-//} 
-
-
-//var set1 = $("#set1").is(":checked");
-    //var set2 = $("#set2").is(":checked");
-    //var set3 = $("#set3").is(":checked");
-    //var set4 = $("#set4").is(":checked");
-
-    //if (set1 == true) {
-    //    setFlag = "1"
-    //}
-    //else if (set2 == true) {
-    //    setFlag = "2"
-    //}
-    //else if (set3 == true) {
-    //    setFlag = "3"
-    //}
-    //else {
-    //    setFlag = "4"
-    //}

@@ -10,30 +10,18 @@
 
 
 
-<h1>@ViewData["Title"]</h1>
-
-<h3>Lista Prenotazioni delle tue prenotazioni</h3>
-
-
-
-@using Microsoft.AspNetCore.Identity
-@using MVC_TDPC13.DB.Entities
-@inject UserManager<User> UserManager
-@inject SignInManager<User> SignInManager
-
-
-<h1>@ViewData["Title"]</h1>
-
-<h4>Lista prenotazioni</h4>
-
+<h1>Pagina Prenotazioni</h1>
+<br /><br /><br />
+<h4>Le tue prenotazioni</h4>
+<br />
 
 
 @model List<PrenotazioneModel>;
 
-<table>
-    <tr>
-        <td> Utente</td>
-        <td> Suite</td>        
+<table class="table table-striped table-bordered">
+    <tr class="table-primary">
+        <th > Utente</th>
+        <th > Suite</th>        
     </tr>
     @foreach (PrenotazioneModel p in Model)
     {
