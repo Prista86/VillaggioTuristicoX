@@ -113,8 +113,6 @@ CREATE TABLE [dbo].[Suites](
 	[Disponibilita] [int] NULL)
 
 
-
-
 --////////////////////////////////////////
 
 INSERT [dbo].[Suites] ([Id], [Nome], [Disponibilita]) VALUES (N'1', N'Silver' , N'3')
@@ -162,14 +160,12 @@ GO
 ALTER DATABASE [VillaggioTuristico] SET  READ_WRITE 
 GO
 
-
-
 --////////////////////////////////////////
 
+select * from Prenotazioni
+select * from Suites
+select * from AspNetUsers
 
-
-INSERT [dbo].[AspNetUsers] ([Id], [Email], [PhoneNumber],[UserName],[FirstName],[LastName]) VALUES (N'db1fcd7f-a63d-4a08-a9e1-285b27868386', N'admin@admin.it' , N'222',N'Admin1', N'Admin' , N'Admin')
-GO
 
 
 

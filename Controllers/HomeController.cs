@@ -44,13 +44,13 @@ namespace MVC_TDPC13.Controllers
         {
             List<Prenotazione> prenotazione = this.repository.GetPersonWithFilter(User.Identity.Name);
             List<PrenotazioneModel> model = new List<PrenotazioneModel>();
-            foreach (Prenotazione p in prenotazione)            
+            foreach (Prenotazione p in prenotazione)
                 model.Add(new PrenotazioneModel()
                 {
                     Week = p.Week,
-                    User = p.User,                    
+                    User = p.User,
                     Suite = p.Suite
-                });    
+                });
             return View(model);
         }
 
@@ -58,20 +58,20 @@ namespace MVC_TDPC13.Controllers
 
 
 
-            [Authorize]
+        [Authorize]
         public IActionResult Prenotazione()
         {
             List<Suite> suite = this.repository.GetSuites();
             List<SuiteModel> model = new List<SuiteModel>();
-            
+
             foreach (Suite p in suite)
                 model.Add(new SuiteModel()
                 {
                     Id = p.Id,
                     Nome = p.Nome,
                     Disponibilita = p.Disponibilita
-                });            
-            
+                });
+
             return View(model);
 
         }
@@ -85,8 +85,8 @@ namespace MVC_TDPC13.Controllers
                 {
                     Week = p.Week,
                     User = p.User,
-                    Suite = p.Suite                      
-                }); 
+                    Suite = p.Suite
+                });
             return View(model);
         }
 
@@ -116,6 +116,7 @@ namespace MVC_TDPC13.Controllers
                         IdentityResult result = await userManager.CreateAsync(user, usersViewModel.Password);
                         if (result.Succeeded)
                             return Json("OK");
+                            
 
                         string errors = string.Empty;
                         foreach (IdentityError error in result.Errors)
@@ -132,6 +133,7 @@ namespace MVC_TDPC13.Controllers
             }
             return Json("Invalid request");
         }
+
 
 
 
