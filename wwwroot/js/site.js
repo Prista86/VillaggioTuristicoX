@@ -16,8 +16,6 @@
     $.ajax({
         method: "POST",
         url: "/Home/Register",
-
-
         data: body,
 
         dataType: "json",
@@ -49,11 +47,11 @@ function prenota(CurrentUser) {
     else {
         suiteFlag = "Gold";
     }
-    
+
     var body = {};
-    body.IdUser = currentUserName;
+    body.User = currentUserName;
     body.Suite = suiteFlag;
-    body.Week = setFlag; 
+    body.Week = setFlag;  
     $.ajax({
         method: "POST",
         url: "/api/prenotazione",
@@ -65,6 +63,7 @@ function prenota(CurrentUser) {
             console.log(data);
             console.log(status);
             this.always();
+            window.location.reload();
         },
         error: function (error, status) {
             console.log(body);
@@ -84,11 +83,9 @@ function SuiteSilver() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data, status) {
-            console.log(data);
-            //for (var i = 0; i < data.length; i++) {
-            //    $("#resultDiv").append("<br/><div>" + data[i] + "</div>");
-            //}
+            console.log(data);            
             this.always();
+            /*window.location.reload();*/
         },
         error: function (error, status) {
             console.log(error);
@@ -96,6 +93,7 @@ function SuiteSilver() {
             this.always();
         },
         always: function () { }
+        
     });    
 };
 
@@ -107,11 +105,9 @@ function SuiteGold() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data, status) {
-            console.log(data);
-            //for (var i = 0; i < data.length; i++) {
-            //    $("#resultDiv").append("<br/><div>" + data[i] + "</div>");
-            //}
+            console.log(data);            
             this.always();
+            /*window.location.reload();*/
         },
         error: function (error, status) {
             console.log(error);
@@ -119,8 +115,17 @@ function SuiteGold() {
             this.always();
         },
         always: function () { }
+        
     });
 };
+
+//document.querySelector('.btn2').style.display = 'none';
+//document.querySelector('.btn1').addEventListener('click', showBtn);
+
+//function showBtn(e) {
+//    document.querySelector('.btn2').style.display = 'block';
+//    e.preventDefault();
+//} 
 
 
 //var set1 = $("#set1").is(":checked");

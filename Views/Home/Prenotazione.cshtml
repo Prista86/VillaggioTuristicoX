@@ -8,6 +8,8 @@
 @inject SignInManager<User> SignInManager
 
 
+
+
 <h1>@ViewData["Title"]</h1>
 
 <h3>Prenota la tua vacanza</h3>
@@ -56,9 +58,28 @@
   
 </div>
 
-<button onclick="prenota({ user: '@User.Identity.Name' })" class="btn btn-primary">Clicca per prenotare la tua vacanza!</button>
-<button onclick="SuiteSilver()" class="btn btn-primary">Verifica disponibilità Suite Silver</button>
-<button onclick="SuiteGold()" class="btn btn-primary">Verifica disponibilità Suite Gold</button>
+
+    
+
+
+
+
+@*<div class="d-grid gap-2 col-6 mx-auto">
+  <button onclick="SuiteSilver()" class="btn btn-primary" id="silver1" type="button" value="silver">Prenota Silver</button>
+  <button onclick="SuiteGold()" class="btn btn-primary" id="gold2" type="button" value="gold">Prenota Gold</button>
+</div>*@
+
+<button onclick="SuiteSilver()" class="btn btn1 btn-primary" id="silver" value="silver">Prenota La suite Silver</button>
+<button onclick="SuiteGold()" class="btn btn1 btn-primary" id="gold" value="gold">Prenota la suite Gold</button>
+<br />
+<br />
+<br />
+
+<button onclick="prenota({ user: '@User.Identity.Name' })" class="btn  btn2 btn-primary">Conferma la Prenotazione</button>
+
+
+@*<button class="btn1">CLICK</button> 
+<button class="btn2">wow you really clicked</button> *@
 
 
 

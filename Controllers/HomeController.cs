@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
+
 namespace MVC_TDPC13.Controllers
 {
     public class HomeController : Controller
@@ -38,13 +39,26 @@ namespace MVC_TDPC13.Controllers
         {
             return View();
         }
-        
+
+        public IActionResult PrenotazioniUser()
+        {
+            List<Prenotazione> prenotazione = this.repository.GetPersonWithFilter(User.Identity.Name);
+            List<PrenotazioneModel> model = new List<PrenotazioneModel>();
+            foreach (Prenotazione p in prenotazione)            
+                model.Add(new PrenotazioneModel()
+                {
+                    Week = p.Week,
+                    User = p.User,                    
+                    Suite = p.Suite
+                });    
+            return View(model);
+        }
 
 
 
 
 
-        [Authorize]
+            [Authorize]
         public IActionResult Prenotazione()
         {
             List<Suite> suite = this.repository.GetSuites();
@@ -64,7 +78,16 @@ namespace MVC_TDPC13.Controllers
 
         public IActionResult AdminPage()
         {
-            return View();
+            List<Prenotazione> prenotazione = this.repository.GetPrenotazioni();
+            List<PrenotazioneModel> model = new List<PrenotazioneModel>();
+            foreach (Prenotazione p in prenotazione)
+                model.Add(new PrenotazioneModel()
+                {
+                    Week = p.Week,
+                    User = p.User,
+                    Suite = p.Suite                      
+                }); 
+            return View(model);
         }
 
         public IActionResult Login()

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MVC_TDPC13.Models
+﻿namespace MVC_TDPC13.Models
 {
     public class SuiteModel
     {        

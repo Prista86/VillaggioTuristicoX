@@ -13,46 +13,46 @@ namespace MVC_TDPC13.Controllers
     public class PrenotazioneController : ControllerBase
     {
         private readonly Repository repository;
-        //private readonly DBContext dbcontext;
+        
+
         public PrenotazioneController(Repository repository)
         {
             this.repository = repository;
+            
         }
-        //public PrenotazioneController(DBContext dBContext)
-        //{
-        //    this.dbcontext = dbcontext;
-        //}
+        
 
-        // POST api/<PrenotazController>
+
+        // POST api/<PrenotazioneController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PrenotazioneModel model)
         {
-            int numSuite;
+            
             List<Suite> suite = this.repository.GetSuites();
-            if (model.Suite=="1")
+
+
+            int numSuite;
+            if (model.Suite == "Silver")
             {
                 numSuite = 0;
-            }else
-            {
-                numSuite=1;
             }
+            else
+            {
+                numSuite = 1;
+            }
+
+
+
 
             if (suite[numSuite].Disponibilita > 0)
             {
                 Prenotazione prenotazione = new Prenotazione();
                 prenotazione.Suite = model.Suite;
                 prenotazione.Week = model.Week;
-                prenotazione.IdUser = model.IdUser;
-                this.repository.InsertPerson(prenotazione);
+                prenotazione.User = model.User;
+                this.repository.InsertPrenotazione(prenotazione);
             }
-            else if (suite[numSuite].Disponibilita > 0)
-            {
-                Prenotazione prenotazione = new Prenotazione();
-                prenotazione.Suite = model.Suite;
-                prenotazione.Week = model.Week;
-                prenotazione.IdUser = model.IdUser;
-                this.repository.InsertPerson(prenotazione);
-            }
+            
 
             //string username = User.Identity.Name;
 

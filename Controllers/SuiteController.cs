@@ -14,6 +14,7 @@ namespace MVC_TDPC13.Controllers
     {
         private readonly Repository repository;
         
+        
         public SuiteController(Repository repository)
         {
             this.repository = repository;
@@ -24,7 +25,8 @@ namespace MVC_TDPC13.Controllers
         [HttpGet("getasync1")]
         public async Task<List<Suite>> GetSilver()
         {
-            List<Suite> suite = this.repository.VerificaSilver();            
+            List<Suite> suite = this.repository.VerificaSilver();
+            
             return suite;
         }
 
@@ -32,6 +34,7 @@ namespace MVC_TDPC13.Controllers
         public async Task<List<Suite>> GetGold()
         {
             List<Suite> suite = this.repository.VerificaGold();
+            
             return suite;
         }
     }

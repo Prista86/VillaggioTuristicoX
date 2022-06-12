@@ -1,6 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "AdminPage";
+    ViewData["Title"] = "PrenotazioniUser";
 }
+
+@using Microsoft.AspNetCore.Identity
+@using MVC_TDPC13.DB.Entities
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+
+
+
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Lista Prenotazioni delle tue prenotazioni</h3>
+
+
 
 @using Microsoft.AspNetCore.Identity
 @using MVC_TDPC13.DB.Entities
@@ -30,6 +44,4 @@
         </tr>
     }
 </table>
-
-
-
+                 
