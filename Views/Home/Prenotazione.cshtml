@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Prenotazione";
+	ViewData["Title"] = "Prenotazione";
 }
 
 @using Microsoft.AspNetCore.Identity
@@ -13,41 +13,59 @@
 <br />
 <br />
 
-<h3>Disponibilità Suite:</h3>
 
-<table>
-    <tr>
-        @*<td> Id</td>*@
-        <td>Nome Suite</td>
-        <td>Disponibilità</td>
-    </tr>
-    @foreach (SuiteModel p in Model)
-    {
-        <tr>
-            @*<td>@p.Id</td>*@
-            <td>@p.Nome</td>
-            <td>@p.Disponibilita</td>
-        </tr>
-    }
-</table>
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<table class="table table-striped table-bordered">
+				<tr>
+					@*<td> Id</td>*@
+					<td>Nome Suite</td>
+					<td>Disponibilità</td>
+				</tr>
+				@foreach (SuiteModel p in Model)
+				{
+					<tr>
+						@*<td>@p.Id</td>*@
+						<td>@p.Nome</td>
+						<td>@p.Disponibilita</td>
+					</tr>
+				}
+			</table>
 
-<br />
-<br />
-<br />
+			<h3>Disponibilità Suite:</h3>
+
+			<br />
+			
+
+			<div>
+				<p>Scegli la tua Suite:</p>
+				<input type="radio" id="suite1" name="camera" value="Silver">
+				<label for="suite1">Silver</label><br>
+				<input type="radio" id="suite2" name="camera" value="Gold">
+				<label for="suite2">Gold</label><br>
+			</div>
+		</div>
+		<div class="col-6">
+			<img class="imgSuite" src="https://www.nauticareport.it/public/images/capanna%20et%C3%A0%20del%20bronzo.jpg" />
 
 
-
-<br />
-<br />
-<br />
-
-<div>
-    <p>Scegli la tua Suite:</p>
-    <input type="radio" id="suite1" name="camera" value="Silver">
-    <label for="suite1">Silver</label><br>
-    <input type="radio" id="suite2" name="camera" value="Gold">
-    <label for="suite2">Gold</label><br>
+		</div>
+	</div>
 </div>
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+
 
 <br />
 <br />
@@ -65,9 +83,9 @@
 <button onclick="SuiteSilver()" class="btn btn1 btn-primary" id="silver" value="silver">Conferma la prenotazione Silver</button>
 <button onclick="SuiteGold()" class="btn btn1 btn-primary" id="gold" value="gold">Conferma la prenotazione Gold</button>
 @*@if (SignInManager.IsSignedIn(User))
-{
-    @User.Identity.Name
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HiddenPage">Hidden Page</a>
-    </li>
-}*@
+	{
+	@User.Identity.Name
+	<li class="nav-item">
+	<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HiddenPage">Hidden Page</a>
+	</li>
+	}*@
