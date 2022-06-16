@@ -4144,7 +4144,7 @@ input[type="button"].btn-block {
   display: block;
 }
 
-.navbar {
+/*.navbar {
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -4154,8 +4154,8 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
-}
+  padding: 0.5rem 0.5rem;   
+}*/
 
 .navbar > .container,
 .navbar > .container-fluid {
@@ -4170,7 +4170,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
-  display: inline-block;
+  /*display: inline-block;*/
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
@@ -4204,9 +4204,9 @@ input[type="button"].btn-block {
 }
 
 .navbar-text {
-  display: inline-block;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+    display: inline-block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .navbar-collapse {
