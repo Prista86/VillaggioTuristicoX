@@ -190,7 +190,14 @@ footer.navbarLuca {
     /*padding-left: 0;*/
     margin-bottom: 0;
     list-style: none;
-    text-align:center;
+    text-align: center;
+    margin: 0 auto;
+    justify-items:center;
+    justify-content:center;
+}
+.flex-grow-1 {
+     /*flex-grow: 1!important; */
+     
 }
 
 
@@ -432,13 +439,13 @@ img {
 
 #contatti span h2 {
     font-family: "Kaushan Script";
-    margin: 0px auto;
+    /*margin: 0px auto;*/
     position: relative;
     color: #3f3f3e;
-    bottom: 100px;
+    bottom: 50px;
     z-index: +10;
-    text-align: center;
-    padding-left: 450px;
+    /*text-align: center;*/
+    /*padding-left: 450px;*/
     font-size: 30px;
 }
 #contatti h3 {
