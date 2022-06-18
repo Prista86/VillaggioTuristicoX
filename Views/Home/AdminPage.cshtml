@@ -8,8 +8,65 @@
 @inject UserManager<User> UserManager
 @inject SignInManager<User> SignInManager
 
+<div id="bg1">
+    <img id="full-screen-width" src="https://franber.be/wp-content/uploads/2022/06/fondoAdmin2.png" alt="A happy dog looking out a door window">
+    <span><h2>Pagina Amministrazione</h2></span>
+</div><br><br>
 
-<h1>@ViewData["Title"]</h1>
+<br>
+
+<p class="fonttesto textwhite" style="font-size:15px"><strong>Informazioni struttura.</strong> Nella tabella sottostante vengono mostrate tutte le prenotazioni effettuate insieme al nominativo e alla suite scelta.</p>
+<br><br>
+
+@model List<PrenotazioneModel>;
+
+<table class="table table-bordered">
+   <tr style="color:white" class="table-dark fonttesto">
+        <th><img width="20" src="https://franber.be/wp-content/uploads/2022/06/icon-user2.png"/><strong>Nome Utente</strong></th>
+        <th><img width="20" src="https://franber.be/wp-content/uploads/2022/06/icon-suite2.png"/><strong>Suite prenotata</strong></th>
+    </tr>
+    @foreach (PrenotazioneModel p in Model)
+    {
+        <tr>
+            <td>@p.User</td>
+            <td>@p.Suite</td>
+
+        </tr>
+    }
+</table>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h1>@ViewData["Title"]</h1>
 
 <br>
 <br>
@@ -36,7 +93,7 @@
 
         </tr>
     }
-</table>
+</table>*@
 
 
 

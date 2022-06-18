@@ -1,5 +1,5 @@
 ﻿@{
-	ViewData["Title"] = "Prenotazione";
+    ViewData["Title"] = "Prenotazione";
 }
 
 @using Microsoft.AspNetCore.Identity
@@ -8,50 +8,193 @@
 @inject SignInManager<User> SignInManager
 @model List<SuiteModel>;
 
-<h1>@ViewData["Title"]</h1>
+
+
+
+<div class="container">
+    <div id="bg1">
+        <img id="full-screen-width" src="https://franber.be/wp-content/uploads/2022/06/fotoPrenot.png" alt="A happy dog looking out a door window">
+        <span><h2>Prenotazioni</h2></span>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <p>
+            La tabella mostra le disponibilità aggiornate delle due Suite
+        </p>
+        <br><br>
+        <table class="table table-striped table-bordered">
+            <tr>
+                @*<td> Id</td>*@
+                <td>Nome Suite</td>
+                <td>Disponibilità</td>
+            </tr>
+            @foreach (SuiteModel p in Model)
+            {
+                <tr>
+                    @*<td>@p.Id</td>*@
+                    <td>@p.Nome</td>
+                    <td>@p.Disponibilita</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br><br><br>
+
+    <div id="suite">
+
+        <img id="full-screen-width" src="https://franber.be/wp-content/uploads/2022/06/fondo3.png" height=900px" alt="A happy dog looking out a door window">
+        <div class="container-fluid mt-1">
+            <span id="titolosuite">
+                <h2> Scegli la tua Suite </h2>
+            </span>
+            <div class="row">
+
+
+                <div class="col p-6">
+                    <span class="card" style="width:500px">
+                        <img class="card-img-top" src="https://franber.be/wp-content/uploads/2022/06/suiteb2.png" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h3 class="card-title">La Suite Silver</h3>
+                            <p class="fonttesto card-text">La Suite Silver è la situazione perfetta per chi è alla ricerca di una atmosfera suggestiva e rilassante<br />Una settimana a partire da €13.583,00<br /><br /></p>
+                            <div class="fonttesto">
+                                <input type="radio" id="suite1" name="camera" value="Silver">
+                                <label for="suite1">Silver</label><br><br>
+                                <button onclick="prenota({ user: '@User.Identity.Name' })" style="background-color:#45312a" class="btn btn2 btn-dark">Conferma la tua scelta</button>
+                                <br /><br />
+                                <button onclick="SuiteSilver()" style="background-color:#2b2927;font-size:20px;" class="btn btn1 btn-dark" id="silver" value="silver">Prenota la Suite Silver</button>
+                            </div>
+                        </div>
+                    </span>
+        @*<div class="card-body">
+                    <button onclick="SuiteSilver()" style="background-color:#2b2927;font-size:20px;" class="btn btn1 btn-dark" id="silver" value="silver">Prenota la Suite Silver</button>
+                    </div>*@
+
+                </div>
+                <div class="col p-6">
+                    <span class="card" style="width:500px">
+                        <img class="card-img-top" src="https://franber.be/wp-content/uploads/2022/06/suiteb1.png" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h3 class="card-title">La Suite Gold</h3>
+                            <p class="fonttesto card-text">L'incanto di una vista senza paragoni saprà stupirvi ad ogni risveglio,grazie ad una terrazza panoramica tra lago e cielo.<br />Una settimana a partire da €15.567,00<br /><br /></p>
+                            <div class="fonttesto">
+                                <input type="radio" id="suite2" name="camera" value="Gold">
+                                <label for="suite2">Gold</label><br><br>
+                                <button onclick="prenota({ user: '@User.Identity.Name' })" style="background-color:#45312a" class="btn btn2 btn-dark">Conferma la tua scelta</button>
+                                <br /><br />
+                                <button onclick="SuiteGold()" style="background-color:#2b2927;font-size:20px;" class="btn btn1 btn-dark id="gold" value="gold">Prenota la Suite Gold</button>
+                            </div>
+                        </div>
+                    </span>
+        @*<div class="card-body">
+                    <button onclick="SuiteGold()" style="background-color:#2b2927;font-size:20px;" class="btn btn1 btn-dark id="gold" value="gold">Prenota la Suite Gold</button>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h1>@ViewData["Title"]</h1>
 
 <br />
 <br />
 
 
 <div class="container">
-	<div class="row">
-		<div class="col-6">
-			<table class="table table-striped table-bordered">
-				<tr>
-					@*<td> Id</td>*@
-					<td>Nome Suite</td>
-					<td>Disponibilità</td>
-				</tr>
-				@foreach (SuiteModel p in Model)
-				{
-					<tr>
-						@*<td>@p.Id</td>*@
-						<td>@p.Nome</td>
-						<td>@p.Disponibilita</td>
-					</tr>
-				}
-			</table>
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-striped table-bordered">
+                <tr>
 
-			<h3>Disponibilità Suite:</h3>
+                    <td>Nome Suite</td>
+                    <td>Disponibilità</td>
+                </tr>
+                @foreach (SuiteModel p in Model)
+                {
+                    <tr>
 
-			<br />
-			
+                        <td>@p.Nome</td>
+                        <td>@p.Disponibilita</td>
+                    </tr>
+                }
+            </table>
 
-			<div>
-				<p>Scegli la tua Suite:</p>
-				<input type="radio" id="suite1" name="camera" value="Silver">
-				<label for="suite1">Silver</label><br>
-				<input type="radio" id="suite2" name="camera" value="Gold">
-				<label for="suite2">Gold</label><br>
-			</div>
-		</div>
-		<div class="col-6">
-			<img class="imgSuite" src="https://www.nauticareport.it/public/images/capanna%20et%C3%A0%20del%20bronzo.jpg" />
+            <h3>Disponibilità Suite:</h3>
+
+            <br />
 
 
-		</div>
-	</div>
+            <div>
+                <p>Scegli la tua Suite:</p>
+                <input type="radio" id="suite1" name="camera" value="Silver">
+                <label for="suite1">Silver</label><br>
+                <input type="radio" id="suite2" name="camera" value="Gold">
+                <label for="suite2">Gold</label><br>
+            </div>
+        </div>
+        <div class="col-6">
+            <img class="imgSuite" src="https://www.nauticareport.it/public/images/capanna%20et%C3%A0%20del%20bronzo.jpg" />
+
+
+        </div>
+    </div>
 </div>
 
 
@@ -81,11 +224,4 @@
 
 
 <button onclick="SuiteSilver()" class="btn btn1 btn-primary" id="silver" value="silver">Conferma la prenotazione Silver</button>
-<button onclick="SuiteGold()" class="btn btn1 btn-primary" id="gold" value="gold">Conferma la prenotazione Gold</button>
-@*@if (SignInManager.IsSignedIn(User))
-	{
-	@User.Identity.Name
-	<li class="nav-item">
-	<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="HiddenPage">Hidden Page</a>
-	</li>
-	}*@
+<button onclick="SuiteGold()" class="btn btn1 btn-primary" id="gold" value="gold">Conferma la prenotazione Gold</button>*@

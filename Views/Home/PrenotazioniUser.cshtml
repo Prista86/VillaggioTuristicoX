@@ -7,10 +7,62 @@
 @inject UserManager<User> UserManager
 @inject SignInManager<User> SignInManager
 
+<div id="bg1">
+    <img id="full-screen-width" src="https://franber.be/wp-content/uploads/2022/06/fondoPren.png" alt="A happy dog looking out a door window">
+    <span><h2>Le Mie Prenotazioni</h2></span>
+</div>
+<br><br><br>
+
+<br>
+
+@model List<PrenotazioneModel>;
+
+<table class="table table-bordered">
+    <tr style="color:white" class="table-dark fonttesto">
+        <th><img width="20" src="https://franber.be/wp-content/uploads/2022/06/icon-user2.png"/><strong>Utente</strong></th>
+        <th><img width="20" src="https://franber.be/wp-content/uploads/2022/06/icon-suite2.png"/><strong>Suite scelta</strong></th>
+    </tr>
+    @foreach (PrenotazioneModel p in Model)
+    {
+        <tr>
+            <td>@p.User</td>
+            <td>@p.Suite</td>
+
+        </tr>
+    }
+</table><br><br>
+<p class="fonttesto textwhite" style="font-size:15px"><strong>Prenotazioni e clausole.</strong> Per poter garantire la disponibilità, vi preghiamo di prenotarli in anticipo, Regno del Sole è sempre a vostra disposizione al numero 0365 241887. Qualora vi sia la necessità di annullare la prenotazione si prega di avvisare entro le 24 ore.</p>
+<br><br>
 
 
 
-<h1>Pagina Prenotazioni </h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h1>Pagina Prenotazioni </h1>
 
 <br />
 <br />
@@ -35,4 +87,4 @@
 
         </tr>
     }
-</table>
+</table>*@
