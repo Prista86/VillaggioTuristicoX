@@ -442,7 +442,7 @@ img {
     /*margin: 0px auto;*/
     position: relative;
     color: #3f3f3e;
-    bottom: 50px;
+    bottom: 0px;
     z-index: +10;
     /*text-align: center;*/
     /*padding-left: 450px;*/
@@ -465,5 +465,6 @@ div.borderlogin {
     position:relative;
     text-align:center;
 }
+
 
 
